@@ -1,5 +1,5 @@
 module.exports = {
-'env': {
+  'env': {
     'browser': true,
     'es2021': true,
   },
@@ -21,6 +21,6 @@ module.exports = {
     'ecmaVersion': 'latest',
     'sourceType': 'module',
   },
-  'rules': {
-  },
+  'rules': {
+  },
 };
