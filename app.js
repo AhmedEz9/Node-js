@@ -111,9 +111,8 @@ app.get('/api/media/:id', (req, res) => {
 });
 
 app.post('/api/media', (req, res) => {
-    // Example logic for adding a media item
     const newMedia = {
-        media_id: Date.now(), // Simple unique ID generator
+        media_id: Date.now(), 
         ...req.body
     };
     mediaItems.push(newMedia);
@@ -121,7 +120,6 @@ app.post('/api/media', (req, res) => {
 });
 
 app.put('/api/media/:id', (req, res) => {
-    // Example logic for modifying a media item
     let media = mediaItems.find(m => m.media_id === parseInt(req.params.id));
     if (!media) {
         return res.status(404).send('Media item not found');
@@ -131,7 +129,6 @@ app.put('/api/media/:id', (req, res) => {
 });
 
 app.delete('/api/media/:id', (req, res) => {
-    // Example logic for deleting a media item
     mediaItems = mediaItems.filter(m => m.media_id !== parseInt(req.params.id));
     res.status(204).send();
 });
@@ -150,9 +147,8 @@ app.get('/api/user/:id', (req, res) => {
 });
 
 app.post('/api/user', (req, res) => {
-    // Example logic for adding a user
     const newUser = {
-        user_id: Date.now(), // Simple unique ID generator
+        user_id: Date.now(), 
         ...req.body
     };
     users.push(newUser);
@@ -160,7 +156,6 @@ app.post('/api/user', (req, res) => {
 });
 
 app.put('/api/user/:id', (req, res) => {
-    // Example logic for modifying a user
     let user = users.find(u => u.user_id === parseInt(req.params.id));
     if (!user) {
         return res.status(404).send('User not found');
@@ -170,7 +165,6 @@ app.put('/api/user/:id', (req, res) => {
 });
 
 app.delete('/api/user/:id', (req, res) => {
-    // Example logic for deleting a user
     users = users.filter(u => u.user_id !== parseInt(req.params.id));
     res.status(204).send();
 });
