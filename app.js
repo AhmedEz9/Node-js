@@ -1,11 +1,20 @@
 const express = require('express');
 const app = express();
+const mediaRoutes = require('./routes/mediaRoutes');
+const likesRoutes = require('./routes/likesRoutes');
+const commentsRoutes = require('./routes/commentsRoutes');
 
 // Set Pug as the view engine for rendering HTML pages
 app.set('view engine', 'pug');
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+// Other setup like middleware...
+app.use('/api', mediaRoutes);
+
+app.use('/api/likes', likesRoutes);
+app.use('/api/comments', commentsRoutes);
 
 // Serve static files from the 'media' directory
 app.use('/media', express.static('media'));
@@ -170,6 +179,5 @@ app.delete('/api/user/:id', (req, res) => {
 });
 
 // Start the server
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
